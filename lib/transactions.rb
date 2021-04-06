@@ -5,6 +5,10 @@ class Transactions
     def initialize
         @history = []
     end
+
+    def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
+        @history << {date: date, credit: amount}
+    end
     
 
 #Feedback from my code review said I should never delete my test method    
