@@ -1,15 +1,17 @@
 class Bank_Account
 
-    attr_reader :balance, :transaction_history
+    attr_reader :balance, :transaction_history, :transaction
 
     def initialize
         @balance = 0
         @transaction_history = []
+        @transaction = Transactions.new
     end
 
     def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
         credit(amount)
         @transaction_history << {date: date, credit: amount}
+        transaction.deposit(amount, date, balance)
     end 
 
     def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))

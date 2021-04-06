@@ -6,8 +6,12 @@ class Transactions
         @history = []
     end
 
-    def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
-        @history << {date: date, credit: amount}
+    def deposit(amount, date = Time.now.strftime("%d/%m/%Y"), balance)
+        @history << {date: date, credit: amount, balance: balance}
+    end
+
+    def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"), balance)
+        @history << {date: date, debit: amount, balance: balance}
     end
     
 
