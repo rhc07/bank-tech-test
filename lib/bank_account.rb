@@ -9,12 +9,13 @@ class Bank_Account
 
     def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
         @balance += amount
-        @log << {date: date, debit: amount}
+        @log << {date: date, credit: amount}
     end 
 
-    def withdraw(amount)
+    def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
         fail "Insuffucient funds in account" if @balance < amount
         @balance -= amount
+        @log << {date: date, debit: amount}
     end
 
 #Feedback from my code review said I should never delete my test method
