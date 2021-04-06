@@ -1,13 +1,15 @@
 class Bank_Account
 
-    attr_reader :balance
+    attr_reader :balance, :log
 
     def initialize
         @balance = 0
+        @log = []
     end
 
-    def deposit(amount)
+    def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
         @balance += amount
+        @log << {date: date, debit: amount}
     end 
 
     def withdraw(amount)

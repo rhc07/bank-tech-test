@@ -2,6 +2,7 @@ require './lib/bank_account.rb'
 
 describe "Bank_Account" do
     let (:account) { Bank_Account.new }
+    let (:date) { Time.now.strftime("%d/%m/%Y") }
 
     before do
         account.deposit(2000)
@@ -16,6 +17,9 @@ describe "Bank_Account" do
     describe "#deposit" do
         it "deposits a sum of money into my account" do
             expect(account.balance).to eq(2000)
+        end
+        it "records the date of deposit transaction" do
+            expect(account.log).to include({date: date, debit: 2000})
         end
     end
 
