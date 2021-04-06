@@ -1,21 +1,21 @@
 class Bank_Account
 
-    attr_reader :balance, :log
+    attr_reader :balance, :transaction_history
 
     def initialize
         @balance = 0
-        @log = []
+        @transaction_history = []
     end
 
     def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
         credit(amount)
-        @log << {date: date, credit: amount}
+        @transaction_history << {date: date, credit: amount}
     end 
 
     def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
         fail "Insuffucient funds in account" if insuffucient_funds?(amount)
         debit(amount)
-        @log << {date: date, debit: amount}
+        @transaction_history << {date: date, debit: amount}
     end
 
 #Feedback from my code review said I should never delete my test method
