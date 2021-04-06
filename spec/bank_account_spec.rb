@@ -25,11 +25,10 @@ describe "Bank_Account" do
 
 
     describe "#withdraw" do
-        
         before do
             account.withdraw(500)
         end
-
+        
         it "withdraws a sum of money from my account" do
             expect(account.balance).to eq(1500)
         end

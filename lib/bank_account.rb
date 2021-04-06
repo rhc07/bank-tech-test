@@ -13,7 +13,7 @@ class Bank_Account
     end 
 
     def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
-        fail "Insuffucient funds in account" if @balance < amount
+        fail "Insuffucient funds in account" if insuffucient_funds?(amount)
         @balance -= amount
         @log << {date: date, debit: amount}
     end
@@ -22,5 +22,13 @@ class Bank_Account
     def test
         "Hello World!"
     end
+
+    private 
+
+    def insuffucient_funds?(amount)
+        @balance < amount 
+    end
+
+    
 
 end
