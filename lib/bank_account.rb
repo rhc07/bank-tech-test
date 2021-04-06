@@ -11,7 +11,11 @@ class Bank_Account
     end 
 
     def withdraw(amount)
-        @balance -= amount
+        if @balance < amount
+            raise "Insuffucient funds in account"
+        else
+            @balance -= amount
+        end
     end
 
 #Feedback from my code review said I should never delete my test method

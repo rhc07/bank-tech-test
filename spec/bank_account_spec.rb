@@ -22,5 +22,9 @@ describe "Bank_Account" do
             account.withdraw(500)
             expect(account.balance).to eq(1500)
         end
+        it "throws an error if there are insuffucient funds in account" do
+            account.deposit(2000)
+            expect{account.withdraw(3000)}.to raise_error("Insuffucient funds in account")
+        end    
     end
 end
