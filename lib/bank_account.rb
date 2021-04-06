@@ -8,13 +8,13 @@ class Bank_Account
     end
 
     def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
-        @balance += amount
+        credit(amount)
         @log << {date: date, credit: amount}
     end 
 
     def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
         fail "Insuffucient funds in account" if insuffucient_funds?(amount)
-        @balance -= amount
+        debit(amount)
         @log << {date: date, debit: amount}
     end
 
@@ -29,6 +29,12 @@ class Bank_Account
         @balance < amount 
     end
 
-    
+    def credit(amount)
+        @balance += amount
+    end
+
+    def debit(amount)
+        @balance -= amount
+    end    
 
 end
