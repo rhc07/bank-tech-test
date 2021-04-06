@@ -23,16 +23,20 @@ describe "Bank_Account" do
         end
     end
 
+
     describe "#withdraw" do
-        it "withdraws a sum of money from my account" do
+        
+        before do
             account.withdraw(500)
+        end
+
+        it "withdraws a sum of money from my account" do
             expect(account.balance).to eq(1500)
         end
         it "throws an error if there are insuffucient funds in account" do
             expect{account.withdraw(3000)}.to raise_error("Insuffucient funds in account")
         end
         it "records the date of withdrawal transaction" do
-            account.withdraw(500)
             expect(account.log).to include({date: date, debit: 500})
         end    
     end
