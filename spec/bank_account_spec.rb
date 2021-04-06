@@ -15,4 +15,12 @@ describe "Bank_Account" do
             expect(account.balance).to eq(1000)
         end
     end
+
+    describe "#withdraw" do
+        it "withdraws a sum of money from my account" do
+            account.deposit(2000)
+            account.withdraw(500)
+            expect(account.balance).to eq(1500)
+        end
+    end
 end

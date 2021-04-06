@@ -6,12 +6,17 @@ class Bank_Account
         @balance = 0
     end
 
-    def test
-        "Hello World!"
-    end
-
     def deposit(amount)
         @balance += amount
+    end 
+
+    def withdraw(amount)
+        @balance -= amount
+    end
+
+#Feedback from my code review said I should never delete my test method
+    def test
+        "Hello World!"
     end
 
 end
