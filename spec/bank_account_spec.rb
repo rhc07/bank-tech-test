@@ -2,7 +2,7 @@ require './lib/bank_account.rb'
 
 describe "Bank_Account" do
     let (:account) { Bank_Account.new }
-    let (:date) { Time.now.strftime("%d/%m/%Y") }
+    let (:date) { Bank_Account::DATE }
     let (:transaction) { double }
 
     before do

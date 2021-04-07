@@ -1,25 +1,28 @@
 class Bank_Account
 
-    attr_reader :balance, :transaction
+    DATE = Time.now.strftime("%d/%m/%Y")
 
-    def initialize(transaction = Transactions.new)
+    attr_reader :balance, :transaction, :statement
+
+    def initialize(transaction = Transactions.new, statement = Statement.new)
         @balance = 0
         @transaction = transaction
+        @statement = statement
     end
 
-    def deposit(amount, date = Time.now.strftime("%d/%m/%Y"))
+    def deposit(amount, date = DATE)
         credit(amount)
         transaction.deposit(amount, date, balance)
     end 
 
-    def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
+    def withdraw(amount, date = DATE)
         fail "Insuffucient funds in account" if insuffucient_funds?(amount)
         debit(amount)
         transaction.withdraw(amount, date, balance)
     end
 
     def print_statement
-        
+        statement.print(transaction.history)
     end
 
 #Feedback from my code review said I should never delete my test method

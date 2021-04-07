@@ -2,8 +2,9 @@ require './lib/statement.rb'
 
 describe "Statement" do
     let (:statement) { Statement.new }
-    let (:transaction) { Transactions.new }
-    let (:date) { Time.now.strftime("%d/%m/%Y") }
+    let (:transaction) { double }
+    let (:account) { Bank_Account.new }
+    let (:date) { Bank_Account::DATE }
 
 
     context "testing Rspec" do
@@ -15,13 +16,9 @@ describe "Statement" do
 
     describe "#print" do
         it "displays the expected bank statement" do
-            transaction.deposit(2000, date, 0)
-            transaction.withdraw(500, date, 2000)
-            expect(statement.print).to include(
-                "date || credit || debit || balance
-                #{date} || 2000.00 || || 0.00
-                #{date} || || 500.00 || 2000.00"
-            )
+            account.deposit(2000)
+            account.withdraw(500)
+            expect{statement.print(account.transaction.history)}.to output.to_stdout
         end
     end
 end

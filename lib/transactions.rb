@@ -19,6 +19,5 @@ class Transactions
     def test
         "Hello World!"
     end
-
-
+    
 end
