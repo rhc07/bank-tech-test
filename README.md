@@ -50,6 +50,25 @@ Bank_Statement->User:"Prints a bank statement using transaction history"
 
 Built in Ruby, this is a mock project that allows a user to interact with a bank account. Users are able to deposit, withdraw and print bank statements using IRB.
 
+## Tech/Framework used:
+
+##### Built with:
+- Ruby
+- Rspec
+
+## Features:
+- Deposit money
+- Withdraw money
+- Print bank statement in the following example format:
+
+```
+date || credit || debit || balance
+07/04/2021 || 100 ||  || 100
+07/04/2021 || 200 ||  || 300
+07/04/2021 ||  || 50 || 250
+
+```
+
 ## How to use:
 
 - Fork the repo and save it on your local computer
