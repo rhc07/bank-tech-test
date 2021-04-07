@@ -60,7 +60,7 @@ Built in Ruby, this is a mock project that allows a user to interact with a bank
 
 ### See below for a screengrab:
 
-![Project_demo](images/Project_demo)
+![Project_demo](images/Project_demo.png)
 
 ## Tests & how to run them:
 
@@ -73,5 +73,5 @@ I followed the TDD approach by using Rspec (Ruby's testing framework). All tests
 
 ### See below for a demonstration:
 
-![Rspec_demo](images/Rspec_demo)
+![Rspec_demo](images/Rspec_demo.png)
 
