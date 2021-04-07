@@ -57,7 +57,9 @@ Built in Ruby, this is a mock project that allows a user to interact with a bank
 - Load the relevant files (Bank_account.rb, Transactions.rb, Statement.rb)
 - Create a new instance of the bank account (e.g "account = Bank_Account.new")
 - Make sure you deposit some money first before using any of the other functions in the programme!
-- See below for a screengrab:
+
+### See below for a screengrab:
+
 ![Project_demo](images/Project_demo)
 
 ## Tests & how to run them:
@@ -68,6 +70,8 @@ I followed the TDD approach by using Rspec (Ruby's testing framework). All tests
 - Go into the relevant directory on your terminal
 - Run "bundle install"
 - Run "rspec" or "rspec -fd" to see all the tests.
-- See below for a demonstration:
+
+### See below for a demonstration:
+
 ![Rspec_demo](images/Rspec_demo)
 
