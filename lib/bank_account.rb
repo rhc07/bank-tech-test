@@ -18,6 +18,10 @@ class Bank_Account
         transaction.withdraw(amount, date, balance)
     end
 
+    def print
+        
+    end
+
 #Feedback from my code review said I should never delete my test method
     def test
         "Hello World!"

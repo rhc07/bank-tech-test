@@ -40,4 +40,11 @@ describe "Bank_Account" do
             expect(account.transaction.history).to include({date: date, debit: 500, balance: 1500})
         end    
     end
+
+    describe "#print" do
+        it "responds to print" do
+            expect(account).to respond_to(:print)
+        end
+        
+    end
 end
