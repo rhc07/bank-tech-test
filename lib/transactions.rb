@@ -1,23 +1,23 @@
+# frozen_string_literal: true
+
+# this logs transactions of the bank account
 class Transactions
+  attr_reader :history
 
-attr_reader :history
-
-def initialize
+  def initialize
     @history = []
-end
+  end
 
-def deposit(amount, date = Time.now.strftime("%d/%m/%Y"), balance)
-    @history << [date, amount,  '', balance]
-end
+  def deposit(amount, date, balance)
+    @history << [date, amount, '', balance]
+  end
 
-def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"), balance)
+  def withdraw(amount, date, balance)
     @history << [date, '', amount, balance]
-end
+  end
 
-
-#Feedback from my code review said I should never delete my test method    
-def test
-    "Hello World!"
-end
-
+  # Feedback from my code review said I should never delete my test method
+  def test
+    'Hello World!'
+  end
 end
