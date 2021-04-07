@@ -3,6 +3,7 @@ require './lib/bank_account.rb'
 describe "Bank_Account" do
     let (:account) { Bank_Account.new }
     let (:date) { Time.now.strftime("%d/%m/%Y") }
+    let (:transaction) { double }
 
     before do
         account.deposit(2000)
@@ -19,7 +20,7 @@ describe "Bank_Account" do
             expect(account.balance).to eq(2000)
         end
         it "records the date of deposit transaction" do
-            expect(account.transaction_history).to include({date: date, credit: 2000})
+            expect(account.transaction.history).to include({date: date, credit: 2000, balance: 2000})
         end
     end
 
@@ -36,7 +37,7 @@ describe "Bank_Account" do
             expect{account.withdraw(3000)}.to raise_error("Insuffucient funds in account")
         end
         it "records the date of withdrawal transaction" do
-            expect(account.transaction_history).to include({date: date, debit: 500})
+            expect(account.transaction.history).to include({date: date, debit: 500, balance: 1500})
         end    
     end
 end
