@@ -1,15 +1,15 @@
 require './lib/bank_account.rb'
 
-describe "Bank_Account" do
-    let (:account) { Bank_Account.new }
-    let (:date) { Bank_Account::DATE }
-    let (:transaction) { double }
+describe 'Bank_Account' do
+    let(:account) { BankAccount.new }
+    let(:date) { BankAccount::DATE }
+    let(:transaction) { double }
 
     before do
         account.deposit(2000)
     end
     
-    context "testing rspec" do
+    context 'testing rspec' do
         it "allows me to view Hello World!" do
             expect(account.test).to eq("Hello World!")
         end

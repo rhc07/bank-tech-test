@@ -1,8 +1,8 @@
 require './lib/transactions.rb'
 
 describe "Transactions" do
-    let (:transaction) { Transactions.new }
-    let (:date) { Bank_Account::DATE }
+    let(:transaction) { Transactions.new }
+    let(:date) { BankAccount::DATE }
 
     context "testing rspec" do
         it "allows me to view Hello World!" do

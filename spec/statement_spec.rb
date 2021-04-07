@@ -1,10 +1,10 @@
 require './lib/statement.rb'
 
 describe "Statement" do
-    let (:statement) { Statement.new }
-    let (:transaction) { double }
-    let (:account) { Bank_Account.new }
-    let (:date) { Bank_Account::DATE }
+    let(:statement) { Statement.new }
+    let(:transaction) { double }
+    let(:account) { BankAccount.new }
+    let(:date) { BankAccount::DATE }
 
 
     context "testing Rspec" do
