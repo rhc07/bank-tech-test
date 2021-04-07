@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# this logs transactions of the bank account
+# This logs transactions of the bank account
 class Transactions
   attr_reader :history
 

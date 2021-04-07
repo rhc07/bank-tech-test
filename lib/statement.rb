@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# this prints the bank statement
+# This prints the bank statement
 class Statement
   def print(transaction_history)
     puts title

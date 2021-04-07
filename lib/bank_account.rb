@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# this is the main bank account class
+# This is the main bank account class
 class BankAccount
   DATE = Time.now.strftime('%d/%m/%Y')
 
