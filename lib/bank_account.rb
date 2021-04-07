@@ -18,7 +18,7 @@ class Bank_Account
         transaction.withdraw(amount, date, balance)
     end
 
-    def print
+    def print_statement
         
     end
 

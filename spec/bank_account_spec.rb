@@ -43,8 +43,7 @@ describe "Bank_Account" do
 
     describe "#print" do
         it "responds to print" do
-            expect(account).to respond_to(:print)
+            expect(account).to respond_to(:print_statement)
         end
-        
     end
 end
