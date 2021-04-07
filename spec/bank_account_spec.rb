@@ -20,7 +20,7 @@ describe "Bank_Account" do
             expect(account.balance).to eq(2000)
         end
         it "records the date of deposit transaction" do
-            expect(account.transaction.history).to include({date: date, credit: 2000, balance: 2000})
+            expect(account.transaction.history).to include([date, 2000, '', 2000])
         end
     end
 
@@ -37,7 +37,7 @@ describe "Bank_Account" do
             expect{account.withdraw(3000)}.to raise_error("Insuffucient funds in account")
         end
         it "records the date of withdrawal transaction" do
-            expect(account.transaction.history).to include({date: date, debit: 500, balance: 1500})
+            expect(account.transaction.history).to include([date, '', 500, 1500])
         end    
     end
 
