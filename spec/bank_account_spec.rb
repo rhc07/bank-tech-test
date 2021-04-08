@@ -34,6 +34,9 @@ describe 'BankAccount' do
     it 'throws an error if there are insuffucient funds in account' do
       expect { account.withdraw(3000) }.to raise_error('Insuffucient funds in account')
     end
+    it 'throws an error if user inputs wrong data' do
+      expect { account.withdraw('thousand') }.to raise_error('Please enter a valid number')
+    end 
   end
 
   describe '#print' do

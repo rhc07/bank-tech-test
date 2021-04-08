@@ -20,6 +20,7 @@ class BankAccount
   end
 
   def withdraw(amount)
+    raise 'Please enter a valid number' if incorrect_input?(amount)
     raise 'Insuffucient funds in account' if insuffucient_funds?(amount)
 
     debit(amount)

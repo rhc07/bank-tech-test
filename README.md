@@ -69,6 +69,11 @@ date || credit || debit || balance
 
 ```
 
+## Edge Cases features:
+- User cannot withdraw more money than in account
+- User cannot deposit or withdraw an unrecognised figure. (Integers only!)
+
+
 ## How to use:
 
 - Fork the repo and save it on your local computer
@@ -89,6 +94,10 @@ I followed the TDD approach by using Rspec (Ruby's testing framework). All tests
 - Go into the relevant directory on your terminal
 - Run "bundle install"
 - Run "rspec" or "rspec -fd" to see all the tests.
+
+##### Test Coverage is 100%
+
+![Test_Coverage](images/Tests_coverage.png)
 
 ### See below for a demonstration:
 
