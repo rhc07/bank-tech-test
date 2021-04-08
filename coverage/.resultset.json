@@ -57,9 +57,9 @@
           1,
           null,
           1,
-          5,
-          5,
-          5,
+          6,
+          6,
+          6,
           null,
           null,
           1,
@@ -90,6 +90,23 @@
           null,
           1,
           2,
+          null,
+          null
+        ]
+      },
+      "/Users/Rorie/Projects/week_10/bank-tech-test/spec/feature_tests/feature_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           null
         ]
@@ -187,7 +204,7 @@
           1,
           null,
           1,
-          8,
+          9,
           null,
           null,
           1,
@@ -201,6 +218,6 @@
         ]
       }
     },
-    "timestamp": 1617882757
+    "timestamp": 1617889730
   }
 }
