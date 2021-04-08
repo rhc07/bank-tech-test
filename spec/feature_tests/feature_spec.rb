@@ -33,8 +33,7 @@ describe 'FeatureTests' do
   end
 
   context 'User wants to print a bank statement in the right format' do
-    let(:printed_statement) 
-    {
+    let(:printed_statement) {
       "date || credit || debit || balance\n" \
       "08/04/2021 || 1000 ||  || 1000\n" \
       "08/04/2021 ||  || 500 || 500\n" \

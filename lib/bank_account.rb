@@ -13,6 +13,8 @@ class BankAccount
   end
 
   def deposit(amount, date = DATE)
+    raise 'Please enter a valid number' if amount.to_i != amount
+
     credit(amount)
     transaction.add_deposit(amount, date, balance)
   end
@@ -29,6 +31,8 @@ class BankAccount
   end
 
   private
+
+  attr_reader 
 
   def insuffucient_funds?(amount)
     @balance < amount
