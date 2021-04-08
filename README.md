@@ -95,7 +95,7 @@ I followed the TDD approach by using Rspec (Ruby's testing framework). All tests
 - Run "bundle install"
 - Run "rspec" or "rspec -fd" to see all the tests.
 
-##### Test Coverage is 100%
+##### Test Coverage is 100%:
 
 ![Test_Coverage](images/Tests_coverage.png)
 
