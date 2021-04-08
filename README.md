@@ -97,7 +97,7 @@ I followed the TDD approach by using Rspec (Ruby's testing framework). All tests
 
 ##### Test Coverage is 100%:
 
-![Test_Coverage](images/Tests_coverage.png)
+![Test_Coverage](images/Test_coverage.png)
 
 ### See below for a demonstration:
 
