@@ -31,4 +31,22 @@ describe 'FeatureTests' do
       )
     end
   end
+
+  context 'User wants to print a bank statement in the right format' do
+    let(:printed_statement) {
+        "date || credit || debit || balance\n" \
+        "08/04/2021 || 1000 ||  || 1000\n" \
+        "08/04/2021 ||  || 500 || 500\n" \
+        "08/04/2021 || 500 ||  || 1000\n" \
+        "08/04/2021 ||  || 700 || 300\n" \
+    }
+
+    it 'Bank statement reflects the users transactions' do
+      account.deposit(1000)
+      account.withdraw(500)
+      account.deposit(500)
+      account.withdraw(700)
+      expect { account.print_statement }.to output(printed_statement).to_stdout
+    end
+  end
 end
