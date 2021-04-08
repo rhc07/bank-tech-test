@@ -11,18 +11,12 @@ describe 'BankAccount' do
     account.deposit(2000)
   end
 
-  context 'testing rspec' do
-    it 'allows me to view Hello World!' do
-      expect(account.test).to eq('Hello World!')
-    end
-  end
-
   describe '#deposit' do
     it 'deposits a sum of money into my account' do
       expect(account.balance).to eq(2000)
     end
     it 'records the date of deposit transaction' do
-      expect(account.transaction.history).to include([date, 2000, '', 2000])
+      expect(account.transaction.history).to include([date, 2000, nil, 2000])
     end
   end
 
@@ -36,9 +30,6 @@ describe 'BankAccount' do
     end
     it 'throws an error if there are insuffucient funds in account' do
       expect { account.withdraw(3000) }.to raise_error('Insuffucient funds in account')
-    end
-    it 'records the date of withdrawal transaction' do
-      expect(account.transaction.history).to include([date, '', 500, 1500])
     end
   end
 

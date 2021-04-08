@@ -8,16 +8,11 @@ class Transactions
     @history = []
   end
 
-  def deposit(amount, date, balance)
-    @history << [date, amount, '', balance]
+  def add_deposit(amount, date, balance)
+    @history << [date, amount, nil, balance]
   end
 
-  def withdraw(amount, date, balance)
-    @history << [date, '', amount, balance]
-  end
-
-  # Feedback from my code review said I should never delete my test method
-  def test
-    'Hello World!'
+  def add_withdraw(amount, date, balance)
+    @history << [date, nil, amount, balance]
   end
 end

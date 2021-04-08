@@ -5,20 +5,22 @@ require './lib/statement'
 describe 'Statement' do
   let(:statement) { Statement.new }
   let(:transaction) { double }
-  let(:account) { BankAccount.new }
   let(:date) { BankAccount::DATE }
 
-  context 'testing Rspec' do
-    it 'allows me to view Hello World' do
-      expect(statement.test).to eq('Hello World!')
-    end
+  let(:transaction_history) do
+      [
+        ["08/04/2021", 1000, nil, 1000], 
+        ["08/04/2021", 2000, nil, 3000], 
+        ["08/04/2021", 4000, nil, 7000], 
+        ["08/04/2021", nil, 2000, 5000], 
+        ["08/04/2021", nil, 2000, 3000]
+    ]
   end
+
 
   describe '#print' do
     it 'displays the expected bank statement' do
-      account.deposit(2000)
-      account.withdraw(500)
-      expect { statement.print(account.transaction.history) }.to output.to_stdout
+      expect { statement.print(transaction_history) }.to output.to_stdout
     end
   end
 end

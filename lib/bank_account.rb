@@ -14,23 +14,18 @@ class BankAccount
 
   def deposit(amount, date = DATE)
     credit(amount)
-    transaction.deposit(amount, date, balance)
+    transaction.add_deposit(amount, date, balance)
   end
 
   def withdraw(amount, date = DATE)
     raise 'Insuffucient funds in account' if insuffucient_funds?(amount)
 
     debit(amount)
-    transaction.withdraw(amount, date, balance)
+    transaction.add_withdraw(amount, date, balance)
   end
 
   def print_statement
     statement.print(transaction.history)
-  end
-
-  # Feedback from my code review said I should never delete my test method
-  def test
-    'Hello World!'
   end
 
   private
