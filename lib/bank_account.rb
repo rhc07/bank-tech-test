@@ -13,7 +13,7 @@ class BankAccount
   end
 
   def deposit(amount, date = DATE)
-    raise 'Please enter a valid number' if amount.to_i != amount
+    raise 'Please enter a valid number' if incorrect_input?(amount)
 
     credit(amount)
     transaction.add_deposit(amount, date, balance)
@@ -36,6 +36,10 @@ class BankAccount
 
   def insuffucient_funds?(amount)
     @balance < amount
+  end
+
+  def incorrect_input?(amount)
+    amount.to_i != amount
   end
 
   def credit(amount)
