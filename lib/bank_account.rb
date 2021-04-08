@@ -4,26 +4,26 @@
 class BankAccount
   DATE = Time.now.strftime('%d/%m/%Y')
 
-  attr_reader :balance, :transaction, :statement
+  attr_reader :transaction, :statement, :balance
 
   def initialize(transaction = Transactions.new, statement = Statement.new)
-    @balance = 0
     @transaction = transaction
     @statement = statement
+    @balance = 0
   end
 
-  def deposit(amount, date = DATE)
+  def deposit(amount)
     raise 'Please enter a valid number' if incorrect_input?(amount)
 
     credit(amount)
-    transaction.add_deposit(amount, date, balance)
+    transaction.add_deposit(amount, DATE, balance)
   end
 
-  def withdraw(amount, date = DATE)
+  def withdraw(amount)
     raise 'Insuffucient funds in account' if insuffucient_funds?(amount)
 
     debit(amount)
-    transaction.add_withdraw(amount, date, balance)
+    transaction.add_withdraw(amount, DATE, balance)
   end
 
   def print_statement
@@ -31,8 +31,6 @@ class BankAccount
   end
 
   private
-
-  attr_reader 
 
   def insuffucient_funds?(amount)
     @balance < amount

@@ -4,7 +4,7 @@ require './lib/bank_account'
 
 describe 'FeatureTests' do
   let(:account) { BankAccount.new }
-  let(:date) { '21/07/2021' }
+  let(:date) { BankAccount::DATE }
 
   context 'before executing any methods' do
     it 'Initializes a new users balance at 0' do
@@ -17,14 +17,14 @@ describe 'FeatureTests' do
 
   context 'Using the account methods' do
     before do
-      account.deposit(1000, date)
+      account.deposit(1000)
     end
 
     it 'Allows a user to deposit some funds into transaction history with a random date' do
       expect(account.transaction.history).to eq([{ date: date, credit: 1000, debit: nil, balance: 1000 }])
     end
     it 'Allows a user to deposit some funds into transaction history with a random date' do
-      account.withdraw(500, date)
+      account.withdraw(500)
       expect(account.transaction.history).to eq(
         [{ date: date, credit: 1000, debit: nil, balance: 1000 },
          { date: date, credit: nil, debit: 500, balance: 500 }]
