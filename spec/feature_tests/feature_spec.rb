@@ -8,5 +8,8 @@ describe 'FeatureTests' do
     it 'Initializes a new users balance at 0' do
       expect(account.balance).to eq(0)  
     end
+    it 'Checks the bank statement is empty' do
+      expect(account.print_statement).to eq []
+    end
   end
 end
