@@ -21,5 +21,14 @@ describe 'FeatureTests' do
     it 'Allows a user to deposit some funds into transaction history with a random date' do
       expect(account.transaction.history). to eq([{date: date, credit: 1000, debit: nil, balance: 1000}])
     end
+    it 'Allows a user to deposit some funds into transaction history with a random date' do
+      account.withdraw(500, date)
+      expect(account.transaction.history). to eq(
+        [
+              {date: date, credit: 1000, debit: nil, balance: 1000}, 
+              {date: date, credit: nil, debit: 500, balance: 500}
+        ]
+      )
+    end
   end
 end
