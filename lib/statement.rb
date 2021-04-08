@@ -4,8 +4,8 @@
 class Statement
   def print(transaction_history)
     puts title
-    transaction_history.each do |date, credit, debit, balance|
-      puts "#{date} || #{credit} || #{debit} || #{balance}"
+    transaction_history.each do |history|
+      puts "#{history[:date]} || #{history[:credit]} || #{history[:debit]} || #{history[:balance]}"
     end
   end
 

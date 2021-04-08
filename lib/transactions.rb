@@ -9,10 +9,10 @@ class Transactions
   end
 
   def add_deposit(amount, date, balance)
-    @history << [date, amount, nil, balance]
+    @history << {date: date, credit: amount, debit: nil, balance: balance}
   end
 
   def add_withdraw(amount, date, balance)
-    @history << [date, nil, amount, balance]
+    @history << {date: date, credit: nil, debit: amount, balance: balance}
   end
 end

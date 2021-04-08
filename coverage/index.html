@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T12:30:43+01:00">2021-04-08T12:30:43+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-04-08T12:52:37+01:00">2021-04-08T12:52:37+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -767,7 +767,7 @@
 
             
 
-            <code class="ruby">    transaction_history.each do |date, credit, debit, balance|</code>
+            <code class="ruby">    transaction_history.each do |history|</code>
           </li>
         </div>
       
@@ -778,7 +778,7 @@
 
             
 
-            <code class="ruby">      puts &quot;#{date} || #{credit} || #{debit} || #{balance}&quot;</code>
+            <code class="ruby">      puts &quot;#{history[:date]} || #{history[:credit]} || #{history[:debit]} || #{history[:balance]}&quot;</code>
           </li>
         </div>
       
@@ -1040,7 +1040,7 @@
 
             
 
-            <code class="ruby">    @history &lt;&lt; [date, amount, nil, balance]</code>
+            <code class="ruby">    @history &lt;&lt; {date: date, credit: amount, debit: nil, balance: balance}</code>
           </li>
         </div>
       
@@ -1084,7 +1084,7 @@
 
             
 
-            <code class="ruby">    @history &lt;&lt; [date, nil, amount, balance]</code>
+            <code class="ruby">    @history &lt;&lt; {date: date, credit: nil, debit: amount, balance: balance}</code>
           </li>
         </div>
       
@@ -1346,7 +1346,7 @@
 
             
 
-            <code class="ruby">      expect(account.transaction.history).to include([date, 2000, nil, 2000])</code>
+            <code class="ruby">      expect(account.transaction.history).to include({date: date, credit: 2000, debit: nil, balance: 2000})</code>
           </li>
         </div>
       
@@ -1751,7 +1751,7 @@
 
             
 
-            <code class="ruby">        [&quot;08/04/2021&quot;, 1000, nil, 1000], </code>
+            <code class="ruby">        {date: &quot;08/04/2021&quot;, credit: 1000, debit: nil, balance: 1000}, </code>
           </li>
         </div>
       
@@ -1762,7 +1762,7 @@
 
             
 
-            <code class="ruby">        [&quot;08/04/2021&quot;, 2000, nil, 3000], </code>
+            <code class="ruby">        {date: &quot;08/04/2021&quot;, credit: 2000, debit: nil, balance: 3000}, </code>
           </li>
         </div>
       
@@ -1773,7 +1773,7 @@
 
             
 
-            <code class="ruby">        [&quot;08/04/2021&quot;, 4000, nil, 7000], </code>
+            <code class="ruby">        {date: &quot;08/04/2021&quot;, credit: 4000, debit: nil, balance: 7000}, </code>
           </li>
         </div>
       
@@ -1784,7 +1784,7 @@
 
             
 
-            <code class="ruby">        [&quot;08/04/2021&quot;, nil, 2000, 5000], </code>
+            <code class="ruby">        {date: &quot;08/04/2021&quot;, credit: nil, debit: 2000, balance: 5000}, </code>
           </li>
         </div>
       
@@ -1795,7 +1795,7 @@
 
             
 
-            <code class="ruby">        [&quot;08/04/2021&quot;, nil, 2000, 3000]</code>
+            <code class="ruby">        {date: &quot;08/04/2021&quot;, credit: nil, debit: 2000, balance: 3000}</code>
           </li>
         </div>
       
@@ -2134,7 +2134,7 @@
 
             
 
-            <code class="ruby">      expect(transaction.history).to include([date, 3000, nil, 1000])</code>
+            <code class="ruby">      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 1000})</code>
           </li>
         </div>
       
@@ -2222,7 +2222,7 @@
 
             
 
-            <code class="ruby">      expect(transaction.history).to include([date, nil, 1000, 4000])</code>
+            <code class="ruby">      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 4000})</code>
           </li>
         </div>
       

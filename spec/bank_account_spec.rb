@@ -16,7 +16,7 @@ describe 'BankAccount' do
       expect(account.balance).to eq(2000)
     end
     it 'records the date of deposit transaction' do
-      expect(account.transaction.history).to include([date, 2000, nil, 2000])
+      expect(account.transaction.history).to include({date: date, credit: 2000, debit: nil, balance: 2000})
     end
   end
 

@@ -9,11 +9,11 @@ describe 'Statement' do
 
   let(:transaction_history) do
       [
-        ["08/04/2021", 1000, nil, 1000], 
-        ["08/04/2021", 2000, nil, 3000], 
-        ["08/04/2021", 4000, nil, 7000], 
-        ["08/04/2021", nil, 2000, 5000], 
-        ["08/04/2021", nil, 2000, 3000]
+        {date: "08/04/2021", credit: 1000, debit: nil, balance: 1000}, 
+        {date: "08/04/2021", credit: 2000, debit: nil, balance: 3000}, 
+        {date: "08/04/2021", credit: 4000, debit: nil, balance: 7000}, 
+        {date: "08/04/2021", credit: nil, debit: 2000, balance: 5000}, 
+        {date: "08/04/2021", credit: nil, debit: 2000, balance: 3000}
     ]
   end
 

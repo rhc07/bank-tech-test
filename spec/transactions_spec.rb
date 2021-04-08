@@ -15,7 +15,7 @@ describe 'Transactions' do
   describe '#deposit' do
     it 'logs a deposit transaction with a random date' do
       transaction.add_deposit(3000, date, 1000)
-      expect(transaction.history).to include([date, 3000, nil, 1000])
+      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 1000})
     end
   end
 
@@ -23,7 +23,7 @@ describe 'Transactions' do
     it 'logs a withdrawal transaction with a random date' do
       transaction.add_deposit(3000, date, 1000)
       transaction.add_withdraw(1000, date, 4000)
-      expect(transaction.history).to include([date, nil, 1000, 4000])
+      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 4000})
     end
   end
 end
