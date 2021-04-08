@@ -12,4 +12,14 @@ describe 'FeatureTests' do
       expect(account.print_statement).to eq []
     end
   end
+
+  context 'Using the account methods' do
+    before do
+        account.deposit(1000, date)
+    end
+
+    it 'Allows a user to deposit some funds into transaction history with a random date' do
+      expect(account.transaction.history). to eq([{date: date, credit: 1000, debit: nil, balance: 1000}])
+    end
+  end
 end
