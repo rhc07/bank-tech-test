@@ -4,26 +4,32 @@ require './lib/transactions'
 
 describe 'Transactions' do
   let(:transaction) { Transactions.new }
-  let(:date) { "12/10/2021" }
+  let(:date) { Time.now.strftime('%d/%m/%Y') }
 
   describe '#history' do
     it 'is empty on intialization' do
-      expect(transaction.history).to eq []
+      expect(transaction.history).to eq [{ date: date, credit: nil, debit: nil, balance: 0 }]
     end
   end
 
-  describe '#deposit' do
-    it 'logs a deposit transaction with a random date' do
-      transaction.add_deposit(3000, date, 1000)
-      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 1000})
+  describe '#add_deposit' do
+    before do
+      transaction.add_deposit(3000)
+    end
+
+    it 'logs a deposit transaction' do
+      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 3000})
     end
   end
 
-  describe '#withdraw' do
-    it 'logs a withdrawal transaction with a random date' do
-      transaction.add_deposit(3000, date, 1000)
-      transaction.add_withdraw(1000, date, 4000)
-      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 4000})
+  describe '#add_withdraw' do
+    before do 
+      transaction.add_deposit(3000)
+      transaction.add_withdraw(1000)
+    end
+
+    it 'logs a withdrawal transaction' do
+      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 2000})
     end
   end
 end
