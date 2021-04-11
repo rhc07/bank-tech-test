@@ -11,11 +11,17 @@ describe 'BankAccount' do
     account.deposit(2000)
   end
 
+  # let and/or create a stub that allows transaction.history to be received by account.new <-- this will create dependency injection
+
   describe '#deposit' do
     it 'deposits a sum of money into my account' do
+      allow(transaction).to receive(:current_balance).and_return(2000)
+
       expect(account.balance).to eq(2000)
     end
     it 'records the date of deposit transaction' do
+      allow(transaction).to receive(:history).and_return({date: date, credit: 2000, debit: nil, balance: 2000})
+      
       expect(account.transaction.history).to include({date: date, credit: 2000, debit: nil, balance: 2000})
     end
     it 'throws an error if user inputs wrong data' do
