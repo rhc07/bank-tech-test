@@ -7,8 +7,8 @@ describe 'FeatureTests' do
   let(:date) { Time.now.strftime('%d/%m/%Y') }
 
   context 'before executing any methods' do
-    it 'Checks that the first bank transaction is empty with a balance of zero' do
-      expect(account.print_statement).to eq [{ date: date, credit: nil, debit: nil, balance: 0 }]
+    it 'Checks that the first bank transaction to be empty' do
+      expect(account.print_statement).to eq []
     end
   end
 
@@ -18,16 +18,14 @@ describe 'FeatureTests' do
     end
 
     it 'Allows a user to deposit some funds into transaction history' do
-      expect(account.transaction.history).to eq(
-        [{ date: date, credit: nil, debit: nil, balance: 0 },
-        { date: date, credit: 1000, debit: nil, balance: 1000 }]
+      expect(account.print_statement).to eq(
+        [{ date: date, credit: 1000, debit: nil, balance: 1000 }]
       )
     end
     it 'Allows a user to withdraw funds and puts it into the transaction history' do
       account.withdraw(500)
-      expect(account.transaction.history).to eq(
-        [{ date: date, credit: nil, debit: nil, balance: 0 },
-         { date: date, credit: 1000, debit: nil, balance: 1000 },
+      expect(account.print_statement).to eq(
+        [{ date: date, credit: 1000, debit: nil, balance: 1000 },
          { date: date, credit: nil, debit: 500, balance: 500 }]
       )
     end
@@ -36,7 +34,6 @@ describe 'FeatureTests' do
   context 'User wants to print a bank statement in the right format' do
     let(:printed_statement) {
       "date || credit || debit || balance\n" \
-      "#{date} ||  ||  || 0\n" \
       "#{date} || 1000 ||  || 1000\n" \
       "#{date} ||  || 500 || 500\n" \
       "#{date} || 500 ||  || 1000\n" \
