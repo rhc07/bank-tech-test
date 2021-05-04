@@ -5,9 +5,7 @@ class Statement
   def print(transaction_history)
     puts title
     pretty_print(transaction_history)
-    transaction_history.each do |history|
-      puts "#{history[:date]} || #{history[:credit]} || #{history[:debit]} || #{history[:balance]}"
-    end
+    statement_body(transaction_history)
   end
 
   private
@@ -15,6 +13,13 @@ class Statement
   def title
     'date || credit || debit || balance'
   end
+
+  def statement_body(transaction_history)
+    transaction_history.reverse.each do |history|
+      puts "#{history[:date]} || #{history[:credit]} || #{history[:debit]} || #{history[:balance]}"
+    end
+  end
+
 
   def pretty_print(transaction_history)
     if transaction_history[0][:credit] == nil

@@ -25,8 +25,8 @@ describe 'FeatureTests' do
     it 'Allows a user to withdraw funds and puts it into the transaction history' do
       account.withdraw(500)
       expect(account.print_statement).to eq(
-        [{ date: date, credit: 1000, debit: nil, balance: 1000 },
-         { date: date, credit: nil, debit: 500, balance: 500 }]
+        [{ date: date, credit: nil, debit: 500, balance: 500 },
+         { date: date, credit: 1000, debit: nil, balance: 1000 }]
       )
     end
   end
@@ -34,10 +34,10 @@ describe 'FeatureTests' do
   context 'User wants to print a bank statement in the right format' do
     let(:printed_statement) {
       "date || credit || debit || balance\n" \
-      "#{date} || 1000 ||  || 1000\n" \
-      "#{date} ||  || 500 || 500\n" \
-      "#{date} || 500 ||  || 1000\n" \
       "#{date} ||  || 700 || 300\n" \
+      "#{date} || 500 ||  || 1000\n" \
+      "#{date} ||  || 500 || 500\n" \
+      "#{date} || 1000 ||  || 1000\n" \
     }
 
     it 'Bank statement reflects the users transactions' do
