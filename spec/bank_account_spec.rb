@@ -20,9 +20,9 @@ describe 'BankAccount' do
       expect(account.balance).to eq(2000)
     end
     it 'records the date of deposit transaction' do
-      allow(transaction).to receive(:history).and_return({date: date, credit: 2000, debit: nil, balance: 2000})
+      allow(transaction).to receive(:history).and_return({date: date, credit: "2000.00", debit: nil, balance: "2000.00"})
       
-      expect(account.transaction.history).to include({date: date, credit: 2000, debit: nil, balance: 2000})
+      expect(account.transaction.history).to include({date: date, credit: "2000.00", debit: nil, balance: "2000.00"})
     end
     it 'throws an error if user inputs wrong data' do
       expect { account.deposit('thousand')}.to raise_error('Please enter a valid number')

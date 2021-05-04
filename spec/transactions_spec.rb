@@ -18,7 +18,7 @@ describe 'Transactions' do
     end
 
     it 'logs a deposit transaction' do
-      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 3000})
+      expect(transaction.history).to include({date: date, credit: "3000.00", debit: nil, balance: "3000.00"})
     end
   end
 
@@ -29,7 +29,7 @@ describe 'Transactions' do
     end
 
     it 'logs a withdrawal transaction' do
-      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 2000})
+      expect(transaction.history).to include({date: date, credit: nil, debit: "1000.00", balance: "2000.00"})
     end
   end
 end

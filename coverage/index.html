@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-05-04T17:16:40+01:00">2021-05-04T17:16:40+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-05-04T19:52:11+01:00">2021-05-04T19:52:11+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.89
+         3.0
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>132</b> relevant lines,
-    <span class="green"><b>132</b> lines covered</span> and
+    <b>134</b> relevant lines,
+    <span class="green"><b>134</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -95,11 +95,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ce1e23687467059d6084e86bfe1e933438fc1141" class="src_link" title="lib/transactions.rb">lib/transactions.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">44</td>
-            <td class="cell--number">20</td>
-            <td class="cell--number">20</td>
+            <td class="cell--number">46</td>
+            <td class="cell--number">22</td>
+            <td class="cell--number">22</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">5.85</td>
+            <td class="cell--number">6.23</td>
             
           </tr>
         
@@ -977,8 +977,8 @@
     
 
     <div class="t-line-summary">
-      <b>20</b> relevant lines.
-      <span class="green"><b>20</b> lines covered</span> and
+      <b>22</b> relevant lines.
+      <span class="green"><b>22</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1128,7 +1128,7 @@
 
             
 
-            <code class="ruby">    @history &lt;&lt; { date: self.date, credit: amount, debit: nil, balance: credit_balance(amount) }</code>
+            <code class="ruby">    @history &lt;&lt; { date: self.date, credit: &#39;%.2f&#39; % amount, debit: nil, balance: credit_balance(amount) }</code>
           </li>
         </div>
       
@@ -1194,7 +1194,7 @@
 
             
 
-            <code class="ruby">    @history &lt;&lt; { date: self.date, credit: nil, debit: amount, balance: debit_balance(amount) }</code>
+            <code class="ruby">    @history &lt;&lt; { date: self.date, credit: nil, debit: &#39;%.2f&#39; % amount, balance: debit_balance(amount) }</code>
           </li>
         </div>
       
@@ -1238,7 +1238,7 @@
 
             
 
-            <code class="ruby">    @history[-1][:balance]</code>
+            <code class="ruby">    (@history[-1][:balance].to_i)</code>
           </li>
         </div>
       
@@ -1348,18 +1348,18 @@
 
             
 
-            <code class="ruby">    @history[-1][:balance] + amount</code>
+            <code class="ruby">    sum = (@history[-1][:balance].to_i) + amount</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
-            
-            
-
+          <li class="covered" data-hits="13" data-linenumber="34">
+            <span class="hits">13</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    &#39;%.2f&#39; % sum</code>
           </li>
         </div>
       
@@ -1370,12 +1370,23 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="36">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
+          <li class="covered" data-hits="1" data-linenumber="37">
             <span class="hits">1</span>
             
 
@@ -1386,18 +1397,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="37">
+          <li class="covered" data-hits="7" data-linenumber="38">
             <span class="hits">7</span>
             
 
             
 
-            <code class="ruby">    @history[-1][:balance] - amount</code>
+            <code class="ruby">    sum = (@history[-1][:balance].to_i) - amount</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="covered" data-hits="7" data-linenumber="39">
+            <span class="hits">7</span>
+            
+
+            
+
+            <code class="ruby">    &#39;%.2f&#39; % sum</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
@@ -1408,7 +1430,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -1419,7 +1441,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
+          <li class="covered" data-hits="1" data-linenumber="42">
             <span class="hits">1</span>
             
 
@@ -1430,18 +1452,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="8" data-linenumber="41">
+          <li class="covered" data-hits="8" data-linenumber="43">
             <span class="hits">8</span>
             
 
             
 
-            <code class="ruby">    @history[-1][:balance] &lt; amount</code>
+            <code class="ruby">    (@history[-1][:balance].to_i) &lt; amount</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
@@ -1452,7 +1474,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
@@ -1463,7 +1485,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
@@ -1753,7 +1775,7 @@
 
             
 
-            <code class="ruby">      allow(transaction).to receive(:history).and_return({date: date, credit: 2000, debit: nil, balance: 2000})</code>
+            <code class="ruby">      allow(transaction).to receive(:history).and_return({date: date, credit: &quot;2000.00&quot;, debit: nil, balance: &quot;2000.00&quot;})</code>
           </li>
         </div>
       
@@ -1775,7 +1797,7 @@
 
             
 
-            <code class="ruby">      expect(account.transaction.history).to include({date: date, credit: 2000, debit: nil, balance: 2000})</code>
+            <code class="ruby">      expect(account.transaction.history).to include({date: date, credit: &quot;2000.00&quot;, debit: nil, balance: &quot;2000.00&quot;})</code>
           </li>
         </div>
       
@@ -2356,7 +2378,7 @@
 
             
 
-            <code class="ruby">        [{ date: date, credit: 1000, debit: nil, balance: 1000 }]</code>
+            <code class="ruby">        [{ date: date, credit: &quot;1000.00&quot;, debit: nil, balance: &quot;1000.00&quot; }]</code>
           </li>
         </div>
       
@@ -2422,7 +2444,7 @@
 
             
 
-            <code class="ruby">        [{ date: date, credit: nil, debit: 500, balance: 500 },</code>
+            <code class="ruby">        [{ date: date, credit: nil, debit: &quot;500.00&quot;, balance: &quot;500.00&quot; },</code>
           </li>
         </div>
       
@@ -2433,7 +2455,7 @@
 
             
 
-            <code class="ruby">         { date: date, credit: 1000, debit: nil, balance: 1000 }]</code>
+            <code class="ruby">         { date: date, credit: &quot;1000.00&quot;, debit: nil, balance: &quot;1000.00&quot; }]</code>
           </li>
         </div>
       
@@ -2521,7 +2543,7 @@
 
             
 
-            <code class="ruby">      &quot;#{date} ||  || 700 || 300\n&quot; \</code>
+            <code class="ruby">      &quot;#{date} ||  || 700.00 || 300.00\n&quot; \</code>
           </li>
         </div>
       
@@ -2532,7 +2554,7 @@
 
             
 
-            <code class="ruby">      &quot;#{date} || 500 ||  || 1000\n&quot; \</code>
+            <code class="ruby">      &quot;#{date} || 500.00 ||  || 1000.00\n&quot; \</code>
           </li>
         </div>
       
@@ -2543,7 +2565,7 @@
 
             
 
-            <code class="ruby">      &quot;#{date} ||  || 500 || 500\n&quot; \</code>
+            <code class="ruby">      &quot;#{date} ||  || 500.00 || 500.00\n&quot; \</code>
           </li>
         </div>
       
@@ -2554,7 +2576,7 @@
 
             
 
-            <code class="ruby">      &quot;#{date} || 1000 ||  || 1000\n&quot; \</code>
+            <code class="ruby">      &quot;#{date} || 1000.00 ||  || 1000.00\n&quot; \</code>
           </li>
         </div>
       
@@ -3254,7 +3276,7 @@
 
             
 
-            <code class="ruby">      expect(transaction.history).to include({date: date, credit: 3000, debit: nil, balance: 3000})</code>
+            <code class="ruby">      expect(transaction.history).to include({date: date, credit: &quot;3000.00&quot;, debit: nil, balance: &quot;3000.00&quot;})</code>
           </li>
         </div>
       
@@ -3375,7 +3397,7 @@
 
             
 
-            <code class="ruby">      expect(transaction.history).to include({date: date, credit: nil, debit: 1000, balance: 2000})</code>
+            <code class="ruby">      expect(transaction.history).to include({date: date, credit: nil, debit: &quot;1000.00&quot;, balance: &quot;2000.00&quot;})</code>
           </li>
         </div>
       
